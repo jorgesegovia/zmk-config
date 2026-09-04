@@ -1,0 +1,9 @@
+&default_transform {
+    columns = <12>;
+    rows = <5>;
+};
+
+&oled {
+    width = <128>;
+    height = <32>;
+};
