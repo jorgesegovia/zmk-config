@@ -1,4 +1,0 @@
-&default_transform {
-    columns = <12>;
-    rows = <5>;
-};
