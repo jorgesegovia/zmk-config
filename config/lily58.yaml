@@ -1,0 +1,100 @@
+---
+# artifact-name sets the exact .uf2 base name (used verbatim by ZMK's
+# build-user-config). Kept clean/URL-safe (no spaces or @) so the files
+# publish as tidy GitHub Release assets and the docs links stay stable,
+# independent of the Zephyr 4.1 board id (nice_nano//zmk, mikoto@7.2//zmk).
+include:
+  # --- New full-duplex-revision boards (nice!view CS relocated to D4) ---
+  # The current boards have no cable-detect pin, so wired can't auto-fall-back
+  # to BLE (verified on hardware). Ship TWO builds and let the user pick wired
+  # or wireless; the shared `nvcs_d4` shield carries the D4 display fix for both.
+  # A future revision with a detect-gpios pin collapses these into one firmware.
+  #
+  # Wired (full-duplex UART over TRRS; wired-only on the current boards)
+  # - board: mikoto@7.2//zmk
+  #   shield: lily58_left nice_view_adapter nice_view nvcs_d4 wired
+  #   snippet: studio-rpc-usb-uart
+  #   artifact-name: lily58_left_wired-mikoto_7.2-zmk
+  # - board: mikoto@7.2//zmk
+  #   shield: lily58_right nice_view_adapter nice_view nvcs_d4 wired
+  #   artifact-name: lily58_right_wired-mikoto_7.2-zmk
+  # # Wireless (BLE; new-revision display CS on D4)
+  # - board: mikoto@7.2//zmk
+  #   shield: lily58_left nice_view_adapter nice_view nvcs_d4
+  #   snippet: studio-rpc-usb-uart
+  #   artifact-name: lily58_left_wireless-mikoto_7.2-zmk
+  # - board: mikoto@7.2//zmk
+  #   shield: lily58_right nice_view_adapter nice_view nvcs_d4
+  #   artifact-name: lily58_right_wireless-mikoto_7.2-zmk
+  # # --- Wireless (BLE) ---
+  # - board: nice_nano//zmk
+  #   shield: lily58_left
+  #   snippet: studio-rpc-usb-uart
+  #   artifact-name: lily58_left-nice_nano_v2-zmk
+  # - board: nice_nano//zmk
+  #   shield: lily58_right
+  #   artifact-name: lily58_right-nice_nano_v2-zmk
+  # - board: nice_nano//zmk
+  #   shield: lily58_left nice_view_adapter nice_view
+  #   snippet: studio-rpc-usb-uart
+  #   artifact-name: lily58_left_display-nice_nano_v2-zmk
+  # - board: nice_nano//zmk
+  #   shield: lily58_right nice_view_adapter nice_view
+  #   artifact-name: lily58_right_display-nice_nano_v2-zmk
+  # - board: mikoto@7.2//zmk
+  #   shield: lily58_left
+  #   snippet: studio-rpc-usb-uart
+  #   artifact-name: lily58_left-mikoto_7.2-zmk
+  # - board: mikoto@7.2//zmk
+  #   shield: lily58_right
+  #   artifact-name: lily58_right-mikoto_7.2-zmk
+  - board: mikoto@7.2//zmk
+    shield: lily58_left nice_view_adapter nice_view
+    snippet: studio-rpc-usb-uart
+    artifact-name: lily58_left_display-mikoto_7.2-zmk
+  - board: mikoto@7.2//zmk
+    shield: lily58_right nice_view_adapter nice_view
+    artifact-name: lily58_right_display-mikoto_7.2-zmk
+  # --- Wired UART split: PARKED / NOT BUILT ---------------------------------
+  # ZMK's wired split currently supports full-duplex (TWO data wires) only.
+  # The keebd Corne/Lily58/Sofle route a SINGLE shared data wire over TRRS, and
+  # ZMK's half-duplex (single-wire) support is not implemented yet, so wired
+  # cannot work on these boards today. The `wired` add-on shield is kept under
+  # boards/shields/wired/ (see its README) so these entries can be re-enabled
+  # once ZMK ships half-duplex. Until then they are commented out so CI does
+  # not build or publish non-functional firmware.
+  # - board: nice_nano//zmk
+  # shield: lily58_left wired
+  # snippet: studio-rpc-usb-uart
+  # artifact-name: lily58_left_wired-nice_nano_v2-zmk
+  # - board: nice_nano//zmk
+  # shield: lily58_right wired
+  # artifact-name: lily58_right_wired-nice_nano_v2-zmk
+  # - board: nice_nano//zmk
+  # shield: lily58_left nice_view_adapter nice_view wired
+  # snippet: studio-rpc-usb-uart
+  # artifact-name: lily58_left_display_wired-nice_nano_v2-zmk
+  # - board: nice_nano//zmk
+  # shield: lily58_right nice_view_adapter nice_view wired
+  # artifact-name: lily58_right_display_wired-nice_nano_v2-zmk
+  # - board: mikoto@7.2//zmk
+  # shield: lily58_left wired
+  # snippet: studio-rpc-usb-uart
+  # artifact-name: lily58_left_wired-mikoto_7.2-zmk
+  # - board: mikoto@7.2//zmk
+  # shield: lily58_right wired
+  # artifact-name: lily58_right_wired-mikoto_7.2-zmk
+  # - board: mikoto@7.2//zmk
+  # shield: lily58_left nice_view_adapter nice_view wired
+  # snippet: studio-rpc-usb-uart
+  # artifact-name: lily58_left_display_wired-mikoto_7.2-zmk
+  # - board: mikoto@7.2//zmk
+  # shield: lily58_right nice_view_adapter nice_view wired
+  # artifact-name: lily58_right_display_wired-mikoto_7.2-zmk
+  # --- Settings reset ---
+  # - board: nice_nano//zmk
+  #   shield: settings_reset
+  #   artifact-name: settings_reset-nice_nano_v2-zmk
+  - board: mikoto@7.2//zmk
+    shield: settings_reset
+    artifact-name: settings_reset-mikoto_7.2-zmk
