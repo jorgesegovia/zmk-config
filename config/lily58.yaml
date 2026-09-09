@@ -49,11 +49,11 @@ include:
   #   shield: lily58_right
   #   artifact-name: lily58_right-mikoto_7.2-zmk
   - board: mikoto@7.2//zmk
-    shield: lily58_left nice_view_adapter nice_view
+    shield: lily58_left nice_view_adapter nice_view nvcs_d4
     snippet: studio-rpc-usb-uart
     artifact-name: lily58_left_display-mikoto_7.2-zmk
   - board: mikoto@7.2//zmk
-    shield: lily58_right nice_view_adapter nice_view
+    shield: lily58_right nice_view_adapter nice_view nvcs_d4
     artifact-name: lily58_right_display-mikoto_7.2-zmk
   # --- Wired UART split: PARKED / NOT BUILT ---------------------------------
   # ZMK's wired split currently supports full-duplex (TWO data wires) only.
