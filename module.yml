@@ -1,0 +1,8 @@
+manifest:
+  projects: []
+  self:
+    path: config
+
+build:
+  cmake-args:
+    - -DZMK_CONFIG=${ZEPHYR_BASE}/../../config
