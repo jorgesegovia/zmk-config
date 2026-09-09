@@ -19,10 +19,19 @@
 #
 ---
 include:
-  - board: mikoto@7.2
+  # Wireless builds without display
+  - board: nice_nano
     shield: lily58_left
     snippet: studio-rpc-usb-uart
-    artifact-name: lily58_left-mikoto_7.2-zmk
-  - board: mikoto@7.2
+    artifact-name: lily58_left-nice_nano_v2-zmk
+  - board: nice_nano
     shield: lily58_right
-    artifact-name: lily58_right-mikoto_7.2-zmk
+    artifact-name: lily58_right-nice_nano_v2-zmk
+  # Wireless builds with nice_view display
+  - board: nice_nano
+    shield: lily58_left nice_view_adapter nice_view
+    snippet: studio-rpc-usb-uart
+    artifact-name: lily58_left_display-nice_nano_v2-zmk
+  - board: nice_nano
+    shield: lily58_right nice_view_adapter nice_view
+    artifact-name: lily58_right_display-nice_nano_v2-zmk
