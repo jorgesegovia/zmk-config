@@ -30,8 +30,9 @@ include:
   # Wireless builds with nice_view display
   - board: nice_nano
     shield: lily58_left nice_view_adapter nice_view
-    snippet: studio-rpc-usb-uart
+    snippet: nice-view-spi-setup studio-rpc-usb-uart
     artifact-name: lily58_left_display-nice_nano_v2-zmk
   - board: nice_nano
     shield: lily58_right nice_view_adapter nice_view
+    snippet: nice-view-spi-setup
     artifact-name: lily58_right_display-nice_nano_v2-zmk
