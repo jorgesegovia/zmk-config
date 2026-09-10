@@ -1,0 +1,5 @@
+if(CONFIG_ZMK_DISPLAY AND NOT CONFIG_SHIELD_NICE_VIEW)
+  zephyr_library()
+  zephyr_library_sources(custom_status_screen.c)
+  zephyr_library_include_directories(${ZEPHYR_LVGL_MODULE_DIR})
+endif()

@@ -1,0 +1,8 @@
+file_format: "1"
+identifier: nice_view_adapter
+name: Nice!View Adapter
+type: shield
+url: https://github.com/zmkfirmware/zmk
+requires: [pro_micro]
+features:
+  - display

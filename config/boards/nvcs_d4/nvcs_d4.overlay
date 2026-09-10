@@ -1,0 +1,19 @@
+/*
+ * Add-on shield: relocate the nice!view CS to D4 for the full-duplex Lily58
+ * revision.
+ *
+ * That revision uses D0/D1 for the split UART, so the display CS moved off D1
+ * (pro_micro 1, the stock nice_view_adapter default) to D4 (pro_micro 4).
+ * SCK/MOSI (P0.20 / P0.17) are unchanged.
+ *
+ * Independent of the split transport, so it stacks under BOTH the wireless and
+ * the wired builds, e.g.
+ *   shield: lily58_left nice_view_adapter nice_view nvcs_d4        (wireless)
+ *   shield: lily58_left nice_view_adapter nice_view nvcs_d4 wired  (wired)
+ *
+ * Must be listed AFTER nice_view_adapter so it overrides its cs-gpios.
+ */
+
+&nice_view_spi {
+    cs-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
+};
